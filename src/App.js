@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Container } from "semantic-ui-react";
+import UserList from "./components/UserList";
+import UserShow from "./components/UserShow";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Container>
+        <Route exact path="/" component={UserList} />
+        <Route exact path="/users/:id" component={UserShow} />
+      </Container>
+    </Router>
   );
-}
+};
 
 export default App;
